@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body onload="verificarLogin()">
+
+<div class="container">
+
+<div class="card">
+
+<input id="cliente" placeholder="Cliente"><br><br>
+<input id="data" type="date"><br><br>
+<input id="horario" type="time"><br><br>
+<input id="valor" placeholder="Valor"><br><br>
+
+<button class="botao" onclick="salvar()">Salvar</button>
+
+</div>
+
+</div>
+
+<script src="../js/auth.js"></script>
+
+<script>
+function salvar(){
+
+let diarias=JSON.parse(localStorage.getItem("diarias"))||[];
+
+diarias.push({
+cliente:cliente.value,
+data:data.value,
+horario:horario.value,
+valor:valor.value
+});
+
+localStorage.setItem("diarias",JSON.stringify(diarias));
+
+alert("Salvo!");
+window.location="../index.html";
+}
+</script>
+
+</body>
+</html>
