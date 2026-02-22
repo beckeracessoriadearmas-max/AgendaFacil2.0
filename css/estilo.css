@@ -90,3 +90,10 @@ input, select{
     justify-content:space-between;
     align-items:center;
 }
+#calendario{
+    max-width:100%;
+    margin-top:20px;
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
