@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="css/estilo.css">
 <link rel="manifest" href="manifest.json">
 
+<!-- ✅ FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -61,6 +64,42 @@
 </div>
 </div>
 
-</body>
+<!-- ✅ FullCalendar JS (ANTES do seu script) -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 
+<!-- ✅ SCRIPT DO CALENDÁRIO -->
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const calendarioEl = document.getElementById('calendario');
+
+    const calendario = new FullCalendar.Calendar(calendarioEl, {
+        initialView: 'dayGridMonth',
+        locale: 'pt-br',
+
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek'
+        },
+
+        buttonText:{
+            today:'Hoje',
+            month:'Mês',
+            week:'Semana'
+        },
+
+        dateClick: function(info){
+            alert("Dia selecionado: " + info.dateStr);
+        }
+
+    });
+
+    calendario.render();
+});
+
+</script>
+
+</body>
 </html>
