@@ -26,19 +26,32 @@
 <script>
 function salvar(){
 
+let cliente=document.getElementById("cliente").value;
+let data=document.getElementById("data").value;
+let horario=document.getElementById("horario").value;
+let valor=document.getElementById("valor").value;
+
+// validação básica
+if(!cliente || !data){
+    alert("Preencha Cliente e Data");
+    return;
+}
+
 let diarias=JSON.parse(localStorage.getItem("diarias"))||[];
 
 diarias.push({
-cliente:cliente.value,
-data:data.value,
-horario:horario.value,
-valor:valor.value
+    cliente:cliente,
+    data:data,
+    horario:horario,
+    valor:Number(valor)||0
 });
 
 localStorage.setItem("diarias",JSON.stringify(diarias));
 
-alert("Salvo!");
+alert("Diária salva com sucesso!");
+
 window.location="../index.html";
+
 }
 </script>
 
